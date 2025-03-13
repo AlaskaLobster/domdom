@@ -17,3 +17,4 @@ Route::delete('/hoc_sinhs/{id}', [HocSinhController::class, 'destroy']); // Rout
 
 
 
+

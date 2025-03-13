@@ -187,35 +187,24 @@ export default {
   },
   methods: {
     async fetchStudents() {
-      this.loading = true;
-      this.error = null;
-      
-      try {
-        const response = await fetch('/api/students');
-        
+    this.loading = true;
+    this.error = null;
+
+    try {
+        const response = await fetch("http://localhost:5000/api/hocsinh"); // Đổi API
         if (!response.ok) {
-          throw new Error(`Lỗi: ${response.status} - ${response.statusText}`);
+            throw new Error(`Lỗi: ${response.status} - ${response.statusText}`);
         }
-        
+
         this.students = await response.json();
-      } catch (error) {
-        console.error('Error fetching students:', error);
-        this.error = 'Không thể tải dữ liệu học sinh. Vui lòng thử lại sau.';
-        
-        // Simulate data for development purposes
-        if (process.env.NODE_ENV === 'development') {
-          this.students = [
-            { id: 1, name: 'Nguyễn Văn A', class: '10A1', dob: '2008-05-15', gpa: 8.5, address: 'Hà Nội', phone: '0987654321' },
-            { id: 2, name: 'Trần Thị B', class: '10A1', dob: '2008-03-21', gpa: 9.2, address: 'Hải Phòng', phone: '0912345678' },
-            { id: 3, name: 'Lê Minh C', class: '10A2', dob: '2008-11-07', gpa: 7.8, address: 'Đà Nẵng', phone: '0923456789' },
-            { id: 4, name: 'Phạm Hoàng D', class: '10A2', dob: '2008-09-30', gpa: 6.5, address: 'TP.HCM', phone: '0934567890' },
-            { id: 5, name: 'Hoàng Thị E', class: '10A3', dob: '2008-02-14', gpa: 8.9, address: 'Cần Thơ', phone: '0945678901' }
-          ];
-        }
-      } finally {
+    } catch (error) {
+        console.error("Lỗi khi lấy dữ liệu học sinh:", error);
+        this.error = "Không thể tải dữ liệu học sinh. Vui lòng thử lại sau.";
+    } finally {
         this.loading = false;
-      }
-    },
+    }
+},
+
     sortBy(key) {
       if (this.sortKey === key) {
         // Toggle direction if same key clicked
