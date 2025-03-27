@@ -1,0 +1,1 @@
+import{_ as a,c as o,a as t,o as n}from"./index-DSYhJ8Rh.js";const s={name:"StudentDashboard"};function r(d,e,c,l,u,p){return n(),o("div",null,e[0]||(e[0]=[t("h1",null,"Student Dashboard",-1),t("p",null,"Welcome to the Student Dashboard!",-1)]))}const f=a(s,[["render",r],["__scopeId","data-v-51f9b608"]]);export{f as default};
